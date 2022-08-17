@@ -46,7 +46,6 @@ function Home() {
 // Page component
 function Form() {
   const [transcript, updateTranscript] = useState('Enter Video Transcript');
-  const [getTranscript, updateGetTranscript] = useState('');
   const [postTranscript, updatePostTranscript] = useState('');
   const [transcriptID, updateTranscriptID] = useState('');
 
