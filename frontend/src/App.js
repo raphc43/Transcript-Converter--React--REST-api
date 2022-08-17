@@ -109,9 +109,8 @@ function Form() {
       (response) => {updateGetTranscript(response.data.transcript);},
       (error) => {console.log(error);}
     );
-    document.getElementById('show').innerHTML = changeGetTranscript.current;
+    document.getElementById('show').innerHTML getTranscript.current;
   }
 }
 
-export { NavBar, Home };
-export default Form;
+export { Form, NavBar, Home };
