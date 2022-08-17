@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
-//import RetrieveTranscript from './API';
 import axios from 'axios';
 
 //all resources outside components have been decalred at the top of the page
 var getStarted = () => {document.getElementById('converter').click();}
 
+//Main navigation bar
 function NavBar() {
   return (
     <>
@@ -22,6 +22,7 @@ function NavBar() {
 
 }
 
+//Page component
 function Home() {
   return (
     <>
@@ -42,6 +43,7 @@ function Home() {
     );
 }
 
+// Page component
 function Form() {
   const [transcript, updateTranscript] = useState('Enter Video Transcript');
   const [getTranscript, updateGetTranscript] = useState('');
@@ -55,7 +57,6 @@ function Form() {
     changes.current = transcript;
     changeGetTranscript.current = getTranscript;
   });
-
 
   return (
     <>
@@ -84,12 +85,14 @@ function Form() {
      </>
     );
 
+  //Component to render transcript
   function showTranscript() { 
     //Rendering changes.current or useRef value on click
     document.getElementById('result').innerHTML = 'Result:';
     document.getElementById('show').innerHTML = changes.current;
   }
 
+  //Component to save data
   function saveData() {
     axios.post('http://localhost:8000/rest/transcript_data/', 
       JSON.stringify({"transcript": transcript}), { 
@@ -104,6 +107,7 @@ function Form() {
   }
 
 
+  //Component to retreive data through entered ID
   function retrieveData() {
     axios.get(`http://localhost:8000/rest/transcript_data/${transcriptID}`).then(
       (response) => {updateGetTranscript(response.data.transcript);},
