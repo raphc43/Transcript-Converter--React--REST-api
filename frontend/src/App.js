@@ -109,11 +109,10 @@ function Form() {
 
   //Component to retreive data through entered ID
   function retrieveData() {
-    axios.get(`http://localhost:8000/rest/transcript_data/${transcriptID}`).then(
-      (response) => {updateGetTranscript(response.data.transcript);},
+    axios.get(`http://localhost:8000/rest/transcript_data/${transcriptID}/`).then(
+      (response) => {document.getElementById('show').innerHTML = response.data.transcript;},
       (error) => {console.log(error);}
     );
-    document.getElementById('show').innerHTML getTranscript.current;
   }
 }
 
