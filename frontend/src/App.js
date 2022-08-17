@@ -49,12 +49,11 @@ function Form() {
   const [postTranscript, updatePostTranscript] = useState('');
   const [transcriptID, updateTranscriptID] = useState('');
 
+  //declaring a useRef hook for specific re-rendering
   const changes = useRef('');
-  const changeGetTranscript = useRef('');
 
   useEffect(() => {
     changes.current = transcript;
-    changeGetTranscript.current = getTranscript;
   });
 
   return (
